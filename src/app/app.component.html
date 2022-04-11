@@ -1,22 +1,15 @@
 <div class="main">
   <h1>TO DO LIST</h1>
   <h2><label for="addItemInput">Мой план на сегодня:</label>
-
     <input
       #newItem
       placeholder="Что будешь делать?"
       (keyup.enter)="addItem(newItem.value); newItem.value = ''"
       class="lg-text-input"
       id="addItemInput"
-    />
-    
+    />  
     <button class="btn-primary" (click)="addItem(newItem.value)">Добавить</button>
   </h2>
-
-  <h2>{{items.length}} <span *ngIf="items.length === 1; else elseBlock">item</span>
-    <ng-template #elseBlock>items</ng-template>
-  </h2>
-    
     <ul>
       <li *ngFor="let item of items">
         <app-item (remove)="remove(item)" [item]="item"></app-item>
